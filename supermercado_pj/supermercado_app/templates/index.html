@@ -2,6 +2,10 @@
 {% load static %}
 
 {% block main %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
 <div
   class="container d-flex flex-lg-row flex-column-reverse align-items-center mt-5 content">
   <div>
@@ -23,3 +27,11 @@
     alt="imagen portada" />
 </div>
 {% endblock main %}
+
+{% block footer %}
+  <div class="container text-black-50 text-center">
+    <p>Desarrollado por Angel Gabriel Garcia Plutin</p>
+    <p>© 2024 CSM</p>
+  </div>
+{% endblock footer %}
+

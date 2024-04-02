@@ -1,12 +1,12 @@
-{% extends 'base.html' %} {% load static %} {% block title %} Acerca de... {%
-endblock title %} {% block main %}
-<div class="d-flex justify-content-center align-items-center flex-colum vh-100">
-  <div class="card d-flex text-center">
+{% extends 'base.html' %} {% load static %} {% block title %} Acerca de... {%endblock title %} 
+{% block main %}
+<div class="info d-flex justify-content-center align-items-center flex-colum">
+  <div class="card d-flex text-center pt-3 shadow-sm">
     <a class="navbar-brand" href="{% url 'inicio' %}"
       ><img
         width="50"
         src="{% static 'img/carrito_logo.svg' %}"
-        alt="logo carrito" /><span class="font-monospace fs-3">CSM </span></a
+        alt="logo carrito" /><span class="font-monospace fs-2">CSM </span></a
     >
     <div class="card-body">
       <div class="container text-black-50 text-center">

@@ -6,16 +6,18 @@ class Producto(models.Model):
     # Definimos las opciones de categoría como una tupla de tuplas.
     # Cada tupla contiene dos elementos: el valor almacenado en la base de datos y la etiqueta visible para el usuario.
     CATEGORIA_CHOICES = (
-    ('fresco', 'Fresco'),
-    ('bebidas', 'Bebidas'),
-    ('congelados', 'Congelados'),
-    ('abarrotes', 'Abarrotes'),
-    ('panaderia', 'Panadería'),
+    ('alimentos', 'Alimentos'),
+    ('snacks', 'Snacks'),
+    ('bebidas', 'bebidas'),
+    ('ropa', 'Ropa'),
+    ('zapatos', 'Zapatos'),
+    ('maquillaje', 'Maquillaje'),
+    ('deportes', 'Deportes'),
+    ('electrodomesticos', 'Electrodomésticos'),
     ('limpieza', 'Limpieza'),
     ('higiene_personal', 'Higiene Personal'),
     ('cuidado_hogar', 'Cuidado del Hogar'),
-    ('electronica', 'Electrónicos'),
-    ('snacks', 'Snacks'),
+    ('tecnolgia', 'Tecnología')
     )
 
 
@@ -29,3 +31,15 @@ class Producto(models.Model):
 
     def __str__(self):
         return  "{} - {}".format(self.nombre, self.categoria)
+
+
+'''
+Alimentos > chocolates, galletas, pasteles.
+Belleza > cremas antiedad, ácido hialurónico, crema de ojos, limpiadores faciales.
+Deportes > Ropa deportiva, pesas, ligas, pelotas y balones.
+Electrodomésticos > lavadoras, microondas, aspiradoras.
+Higiene y salud > medicamentos, suplementos alimenticios, vitaminas, shampoo.
+Maquillaje > labiales, base, rubores, delineadores.
+Ropa > vestidos, pantalones, trajes de baño.
+Tecnología > televisores, sonido, laptops y computadoras
+'''

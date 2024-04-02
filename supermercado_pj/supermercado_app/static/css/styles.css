@@ -6,9 +6,10 @@ main {
   justify-content: center;
 }
 
-/* .content {
+.content {
   height: 60vh;
-} */
+  margin-bottom: 6rem;
+}
 
 .image-portada {
   width: 100%; /* La imagen ocupa todo el ancho del contenedor */
@@ -26,17 +27,34 @@ main {
   cursor: pointer;
 }
 
-/* .container-form {
-  max-width: 600px;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  background-color: green;
-} */
-
+/* Estilo predeterminado de la tarjeta */
 .card-form {
-  width: 40%;
+  width: 500px;
   margin-top: 60px;
   margin-bottom: 60px;
 }
+
+@media only screen and (max-width: 768px) {
+  .card-form {
+    max-width: 400px;
+  }
+}
+
+/* Media query para teléfonos */
+@media only screen and (max-width: 576px) {
+  .card-form {
+    max-width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .card-container {
+    padding: 15px;
+  }
+}
+
+.info {
+  height: 80vh;
+}
+
