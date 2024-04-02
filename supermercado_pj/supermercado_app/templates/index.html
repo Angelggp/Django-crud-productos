@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<div
+  class="container d-flex flex-lg-row flex-column-reverse align-items-center mt-5 content">
+  <div>
+    <h1 class="font-monospace">
+      Bienvenido a nuestra cadena de
+      <strong class="text-decoration-underline">Supermercados</strong>
+    </h1>
+    <p class="lead">
+      Encuentra una amplia variedad de productos de alta calidad al mejor
+      precio.
+    </p>
+    <a href="{% url 'listado' %}" class="btn btn-primary"
+      >Ver productos <img src="{% static 'img/arrow.svg' %}" width="20"
+    /></a>
+  </div>
+  <img
+    class="image-portada mt-1 mb-3 mb-lg-0 me-lg-3"
+    src="{% static 'img/supermercado.jpg' %}"
+    alt="imagen portada" />
+</div>
+{% endblock main %}

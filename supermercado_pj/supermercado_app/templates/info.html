@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Acerca de... {%
+endblock title %} {% block main %}
+<div class="d-flex justify-content-center align-items-center flex-colum vh-100">
+  <div class="card d-flex text-center">
+    <a class="navbar-brand" href="{% url 'inicio' %}"
+      ><img
+        width="50"
+        src="{% static 'img/carrito_logo.svg' %}"
+        alt="logo carrito" /><span class="font-monospace fs-3">CSM </span></a
+    >
+    <div class="card-body">
+      <div class="container text-black-50 text-center">
+        <p>Desarrollado por Angel Gabriel Garcia Plutin</p>
+        <strong>Version: 1.0</strong>
+        <p>© 2024 CSM</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock main %}

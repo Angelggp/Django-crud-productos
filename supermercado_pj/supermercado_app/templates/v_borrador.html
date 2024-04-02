@@ -1,0 +1,127 @@
+<!-- formulario html -->
+
+<div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      name="nombre"
+      placeholder="Nombre del producto" />
+  </div>
+  <div class="mb-3">
+    <label for="descripcion" class="form-label">Descripción</label>
+    <textarea
+      class="form-control"
+      id="descripcion"
+      name="descripcion"
+      rows="3"
+      placeholder="Descripción del producto"></textarea>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="precio" class="form-label">Precio</label>
+      <input
+        type="number"
+        class="form-control"
+        id="precio"
+        name="precio"
+        placeholder="Precio del producto" />
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="categoria" class="form-label">Categoría</label>
+      <select class="form-select" id="categoria" name="categoria">
+        <option selected>Seleccione una categoría...</option>
+        <option value="1">Categoría 1</option>
+        <option value="2">Categoría 2</option>
+        <option value="3">Categoría 3</option>
+      </select>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="cantidad" class="form-label">Cantidad en Stock</label>
+    <input
+      type="number"
+      class="form-control"
+      id="cantidad"
+      name="cantidad"
+      placeholder="Cantidad en stock" />
+  </div>
+
+  agregar producto
+
+  {% comment %} # def agregar_producto(request):
+#     nombre = request.POST['nombre']
+#     descripcion = request.POST['descripcion']
+#     precio = request.POST['precio']
+#     categoria = request.POST['categoria']
+#     cantidad = request.POST['cantidad']
+    
+#     producto = Producto.objects.create(
+#         nombre=nombre,
+#         descripcion=descripcion,
+#         precio=precio,
+#         categoria=categoria,
+#         cantidad=cantidad
+#     )
+    
+    
+#     template = 'form.html'
+#     return render(request, template)
+
+from django.http import HttpResponseBadRequest
+
+def agregar_producto(request):
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre', '')
+        descripcion = request.POST.get('descripcion', '')
+        precio = request.POST.get('precio', '')
+        categoria = request.POST.get('categoria', '')
+        cantidad = request.POST.get('cantidad', '')
+        
+        # Verifica si todos los campos obligatorios están presentes
+        if nombre and descripcion and precio and categoria and cantidad:
+            producto = Producto.objects.create(
+                nombre=nombre,
+                descripcion=descripcion,
+                precio=precio,
+                categoria=categoria,
+                cantidad=cantidad
+            )
+
+            return redirect('productos/agregarProducto/')
+        else:
+            # Si falta algún campo obligatorio, devuelve un error
+            return HttpResponseBadRequest("Faltan campos obligatorios en el formulario.")
+    else:
+        # Si la solicitud no es POST, devuelve un error
+        return HttpResponseBadRequest("La solicitud debe ser de tipo POST.") {% endcomment %}
+        template = 'producto_form.html'
+        producto_form = ProductoForm()
+        if request.method == 'POST':
+            producto_form = ProductoForm(data=request.POST)
+            if producto_form.is_valid():
+                producto = producto_form.save()
+                messages.success(request, 'Producto agregado!')
+                #return redirect(reverse('agregar') + '?sagregado')
+                return redirect('agregar')
+            else:
+                messages.success(request, 'Ha ocurrido un error!')
+                return redirect('agregar')
+                #return redirect(reverse('agregar') + '?error')
+                
+        
+        return render(request, template, {'form': producto_form})
+
+
+            <!-- {% if 'agregado' in request.GET %}
+    <div class="alert alert-success mt-5">
+      <strong>Producto guardado</strong>
+    </div>
+    {% endif %} 
+    
+    {% if 'error' in request.GET %}
+    <div class="alert alert-danger mt-5">
+      <strong>Ha ocurrido un error</strong>
+    </div>
+    {% endif %} -->

@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %} 
+{% block title %} {% if form.instance.pk %}Editar{% else %}Agregar{% endif %} Producto {% endblock title %} 
+
+{% block main %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<div
+  class="container d-flex justify-content-center align-items-center flex-column">
+  <div class="card shadow-sm card-form">
+    <div class="card-body ">
+      <h2 class=" card-title text-center">
+        {% if form.instance.pk %}Editar{% else %}Agregar{% endif %} Producto
+      </h2>
+  
+      <form method="POST">
+        {% csrf_token %} {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a class="btn btn-secondary btn-block" href="{% url 'listado' %}">Cancelar</a>
+      </form>
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible mt-3 " role="alert">
+          <strong>{{ message }}</strong>
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+  
+      {% endif %}
+  
+    </div>
+  </div>
+</div>
+{% endblock main %}

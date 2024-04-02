@@ -1,0 +1,42 @@
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* .content {
+  height: 60vh;
+} */
+
+.image-portada {
+  width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+  max-width: 600px; /* Anchura máxima de la imagen */
+  max-height: 500px; /* Altura máxima de la imagen */
+  transition: filter 0.5s ease; /* Transición suave para cambiar a blanco y negro */
+  border-top-left-radius: 40%;
+}
+
+/* Efecto blanco y negro al pasar el cursor */
+.image-portada:hover {
+  filter: grayscale(
+    100%
+  ); /* Aplicar filtro de blanco y negro al pasar el cursor */
+  cursor: pointer;
+}
+
+/* .container-form {
+  max-width: 600px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: green;
+} */
+
+.card-form {
+  width: 40%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
