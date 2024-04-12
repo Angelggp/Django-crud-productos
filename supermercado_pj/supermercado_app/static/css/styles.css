@@ -23,7 +23,7 @@ main {
 .image-portada:hover {
   filter: grayscale(
     100%
-  ); /* Aplicar filtro de blanco y negro al pasar el cursor */
+  ); /* filtro de blanco y negro al pasar el cursor */
   cursor: pointer;
 }
 

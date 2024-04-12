@@ -64,3 +64,17 @@ def eliminar_producto(request, id):
 def info(request):
     template = 'info.html'
     return render(request, template)
+
+from django.db.models import Q
+
+def buscar_productos(request):
+    query = request.GET.get('q', '')
+    if query:
+        productos = Producto.objects.filter(
+            Q(nombre__icontains=query) | 
+            Q(categoria__icontains=query)
+        )
+    else:
+        productos = Producto.objects.all()
+    context = {'productos': productos, 'query': query}
+    return render(request, 'producto_list.html', context)
